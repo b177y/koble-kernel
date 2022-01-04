@@ -1,0 +1,45 @@
+= Netkit Kernel
+
+== Overview
+
+This project is for compiling a
+link:https://www.kernel.org/doc/html/v5.14-rc7/virt/uml/user_mode_linux_howto_v2.html#building-a-uml-instance[User Mode Linux]
+kernel for use with link:https://github.com/b177y/netkit[netkit].
+
+== Building
+
+To build the kernel run
+
+[source,sh]
+----
+./pleasew build //:kernel
+----
+
+This will output the kernel to `plz-out/bin/linux`.
+
+OR to create a kernel tarball:
+
+[source,sh]
+----
+./pleasew build //:archive
+----
+
+This will create an archive at `plz-out/gen/netkit-kernel-VERSION.tar.gz`
+containing the `linux` binary.
+
+NOTE: If you already have `plz` installed you can replace `./pleasew` with
+it in these commands.
+
+== Usage
+
+The kernel is intended to be used with link:https://github.com/b177y/netkit[netkit]
+however can be used for testing without netkit.
+
+For example:
+
+[source,sh]
+----
+./linux name=test umid=test mem=132M ubd0=test-overlay.disk,/path/to/netkit-fs root=98:0 con0=fd:0,fd:1 con1=null hosthome=$HOME
+----
+
+NOTE: you must have a filesystem built for this, such as link:https://github.com/b177y/netkit-fs[netkit-fs].

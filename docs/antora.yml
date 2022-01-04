@@ -1,0 +1,6 @@
+name: Netkit UML Kernel
+title: Netkit UML Kernel
+version: '0.1'
+start_page: ROOT:index.adoc
+nav:
+  - modules/ROOT/nav.adoc
