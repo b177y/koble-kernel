@@ -12,7 +12,7 @@ http_archive(
 
 genrule(
     name="patch_kernel",
-    srcs=["//:download_kernel", "patches"],
+    srcs=[":download_kernel", "patches"],
     cmd=[
         f"QUILT_PATCHES=patches quilt push -a",
     ]
@@ -20,8 +20,8 @@ genrule(
 
 genrule(
     name="kernel",
-    srcs=["//:download_kernel", "uml-kernel-config"],
-    deps=["//:patch_kernel"],
+    srcs=[":download_kernel", "uml-kernel-config"],
+    deps=[":patch_kernel"],
     outs=["linux"],
     binary=True,
     cmd=[
@@ -34,7 +34,7 @@ genrule(
 
 tarball(
     name="archive",
-    srcs=["//:kernel"],
+    srcs=[":kernel"],
     out=f"netkit-kernel-{KERNEL_VERSION}.tar.gz",
     gzip=True,
 )
