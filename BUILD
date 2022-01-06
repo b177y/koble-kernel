@@ -35,6 +35,6 @@ genrule(
 tarball(
     name="archive",
     srcs=[":kernel"],
-    out=f"netkit-kernel-{KERNEL_VERSION}.tar.gz",
+    out=f"koble-kernel-{KERNEL_VERSION}.tar.gz",
     gzip=True,
 )
