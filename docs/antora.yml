@@ -1,5 +1,5 @@
-name: Koble UML Kernel
-title: Koble UML Kernel
+name: uml-kernel
+title: UML Kernel
 version: '0.1'
 start_page: ROOT:index.adoc
 nav:
