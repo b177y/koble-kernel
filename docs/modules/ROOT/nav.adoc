@@ -1,2 +1,4 @@
 .Koble Kernel
-* xref:index.adoc[]
+* xref:index.adoc[Overview]
+* xref:build.adoc[]
+* xref:patches.adoc[]

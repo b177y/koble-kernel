@@ -6,29 +6,14 @@ This project is for compiling a
 link:https://www.kernel.org/doc/html/v5.14-rc7/virt/uml/user_mode_linux_howto_v2.html#building-a-uml-instance[User Mode Linux]
 kernel for use with link:https://github.com/b177y/koble[Koble].
 
-== Building
-
-To build the kernel run
-
-[source,sh]
-----
-./pleasew build //:kernel
-----
-
-This will output the kernel to `plz-out/bin/linux`.
-
-OR to create a kernel tarball:
-
-[source,sh]
-----
-./pleasew build //:archive
-----
-
-This will create an archive at `plz-out/gen/koble-kernel-VERSION.tar.gz`
-containing the `linux` binary.
-
-NOTE: If you already have `plz` installed you can replace `./pleasew` with
-it in these commands.
+ifdef::env-github[]
+For instructions on how to build the kernel binary see the
+link:https://koble.b177y.dev/koble-kernel/0.1/build.html[build guide].
+endif::[]
+ifndef::env-github[]
+For instructions on how to build the kernel binary see the
+xref:build.adoc[build guide].
+endif::[]
 
 == Usage
 

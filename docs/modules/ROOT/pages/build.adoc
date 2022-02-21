@@ -1,0 +1,25 @@
+= Building
+
+== Build Linux Binary
+
+To build the kernel run
+
+NOTE: If you already have `plz` installed you can replace `./pleasew` with
+it in these commands.
+
+[source,sh]
+----
+./pleasew build //:kernel
+----
+
+This will output the kernel to `plz-out/bin/linux`.
+
+== Creating Tarball with Binary
+
+[source,sh]
+----
+./pleasew build //:archive
+----
+
+This will create an archive at `plz-out/gen/koble-kernel-VERSION.tar.gz`
+containing the `linux` binary.

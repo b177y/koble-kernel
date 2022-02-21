@@ -1,0 +1,49 @@
+= Patches
+
+== Overview
+
+Koble uses a patched Linux kernel to allow additional functionality
+and stability.
+An example of a kernel patch is the addition of random MAC addresses
+for network interfaces in a way that makes collisions unlikely.
+This is taken from
+link:https://github.com/netkit-jh/netkit-jh-build[Netkit].
+
+== Creating Patches
+
+To create a patch you need two copies of the Linux kernel source.
+Use the URL defined by `KERNEL_URL` in *BUILD* to fetch the source code:
+
+[source,sh]
+----
+wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.14.9.tar.xz
+tar -xvf linux-5.14.9.tar.xz
+mv linux-source-5.14.9 linux-orig
+cp -r linux-orig linux-custom
+----
+
+Now you can make changed to the source code within the `linux-custom`
+directory (while leaving `linux-orig` as it is).
+
+To create a patch from the changes run:
+
+[source,sh]
+----
+diff -urpN linux-orig linux-custom > 93-tutorial-example.patch
+----
+
+== Adding Patches to the Kernel Build
+
+You can move the `.patch` file to the `patches/` directory.
+The patch must also be added to the file `patches/series`, e.g:
+
+.patches/series
+[source]
+----
+02_x-terminal-emulator.patch
+03_uml_switch.patch
+05_fix_static_build.patch
+08-fix-pcap-linkage.patch
+90-netkit_support.patch
+93-tutorial-example.patch
+----
